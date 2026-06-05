@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage
 
-load_dotenv()
+load_dotenv(override=False)
 
 # Add scripts folder to path so we can import retrieval.py
 sys.path.append(os.path.join(os.path.dirname(__file__), "../scripts"))
