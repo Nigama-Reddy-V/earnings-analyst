@@ -25,7 +25,7 @@ st.divider()
 
 # ── SIDEBAR ──────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.header("⚙️ Configuration")
+    #st.header("⚙️ Configuration")
 
     # ticker = st.selectbox(
     #     "Company",
@@ -35,7 +35,7 @@ with st.sidebar:
     ticker = None
     
 
-    st.divider()
+    #st.divider()
     st.markdown("### 💡 Example queries")
     examples = [
         "What was management's tone on gross margins?",
@@ -57,6 +57,29 @@ with st.sidebar:
     3. **Analyzer** — finetuned Mistral 7B via HF API
     4. **Report** — formats structured output
     """)
+
+
+# ── FILE UPLOAD ──────────────────────────────────────────────────────────────
+st.subheader("📂 Upload Your Own Transcript")
+uploaded_file = st.file_uploader(
+    "Upload an earnings call transcript (TXT or PDF)",
+    type=["txt", "pdf"]
+)
+
+if uploaded_file:
+    if st.button("📥 Ingest Transcript"):
+        with st.spinner(f"Ingesting {uploaded_file.name}..."):
+            try:
+                sys.path.append(os.path.join(os.path.dirname(__file__), "scripts"))
+                from ingest_upload import ingest_uploaded_transcript, extract_text
+                text = extract_text(uploaded_file)
+                num_chunks = ingest_uploaded_transcript(text, uploaded_file.name)
+                st.success(f"✅ Ingested {num_chunks} chunks from {uploaded_file.name}. Now ask questions below.")
+            except Exception as e:
+                st.error(f"Ingestion failed: {e}")
+
+st.divider()
+
 
 # ── MAIN INPUT ───────────────────────────────────────────────────────────────
 col1, col2 = st.columns([4, 1])

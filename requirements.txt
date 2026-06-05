@@ -7,3 +7,4 @@ qdrant-client
 sentence-transformers
 python-dotenv
 requests
+pypdf
