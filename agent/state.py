@@ -9,9 +9,11 @@ class AgentState(TypedDict):
     # Input
     query: str                          # original user question
     ticker: Optional[str]               # company ticker e.g. "AAPL"
+    model_choice: Optional[str]         # "groq" or "mistral" (HF finetuned)
+    session_id: Optional[str]           # session ID for user-uploaded document RAG
 
     # Router output
-    mode: Optional[str]                 # "single_quarter" or "multi_quarter"
+    mode: Optional[str]                 # "single_quarter", "multi_quarter", or "general"
     quarters: Optional[List[str]]       # ["2024-09-30"] or two quarters
 
     # Retriever output

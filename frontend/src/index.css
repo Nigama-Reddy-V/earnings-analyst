@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian-950: #05070a;
+  --color-obsidian-900: #090d14;
+  --color-obsidian-850: #0e1420;
+  --color-obsidian-800: #141c2c;
+  --color-forest-950: #03140d;
+  --color-forest-900: #052216;
+  --color-forest-800: #083622;
+  --color-forest-700: #0d4b31;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(105vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.35;
+  }
+  90% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.floating-number {
+  position: absolute;
+  pointer-events: none;
+  font-family: 'Inter', monospace;
+  font-weight: 700;
+  animation: floatUp 20s linear infinite;
+  white-space: nowrap;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  background-color: #05070a; /* Obsidian 950 default */
+  color: #f3f4f6; /* Warm off-white default */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #05070a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}

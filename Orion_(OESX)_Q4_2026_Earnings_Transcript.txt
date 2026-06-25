@@ -1,0 +1,168 @@
+DATE
+Thursday, June 4, 2026 at 10 a.m. ET
+
+CALL PARTICIPANTS
+Chief Executive Officer — Sally Washlow
+Chief Financial Officer — John Brodin
+Need a quote from a Motley Fool analyst? Email pr@fool.com
+
+TAKEAWAYS
+Total Revenue (fiscal 2026) -- $86.3 million, an increase from $79.7 million (fiscal 2025), driven by organic growth and execution on large projects.
+Adjusted EBITDA (fiscal 2026) -- Positive $2.2 million for the year, compared with negative $2.9 million in fiscal 2025, reflecting implementation of profitability initiatives.
+Net Loss (fiscal 2026) -- $3.2 million, or $0.89 per share, a substantial improvement from a net loss of $11.8 million, or $3.59 per share, in fiscal 2025.
+Q4 Revenue -- $25.7 million in the quarter, up from $20.9 million, driven by increased project activity and growth in the distribution channel.
+LED Segment Revenue -- $55.9 million for fiscal 2026 and $20.3 million in Q4, showing annual growth.
+Lighting Segment Gross Margin -- 40.4% in Q4, up from 28.3%, benefiting from a $1.3 million contract amendment payment that carried no associated cost; excluding this, the segment would still exceed 30% margin.
+EV Charging Revenue -- $14.4 million for the year, down from $16.8 million, primarily related to sector-wide U.S. uncertainty and a strong prior-year Q4.
+Maintenance Segment Revenue -- $16 million for the year, up 6%, with Q4 at $3.2 million, attributed to seasonal timing.
+Gross Margin -- Company-wide gross margin improved to 32.6% for the year and 37% in Q4, both up from prior periods.
+Operating Expenses -- Declined to $29.7 million for the fiscal year, including earn-out expense, noncash solar asset write-off, and executive sign-on bonus.
+Financial Liquidity -- $15.4 million in available liquidity at year-end, plus a $4 million net paydown on revolving credit.
+Equity Raise & Capital Structure -- Raised $6.4 million through issuance of 500,000 shares, supporting growth and paydown of credit facility; extended credit facility maturity to June 30, 2030.
+Outlook for Fiscal 2027 -- Revenue guidance of $95 million to $97 million, with anticipated positive adjusted EBITDA and margin stability around 30%.
+Data Center Market Entry -- Launched a new multipurpose linear lighting fixture specifically for data centers, aiming to address energy efficiency needs in a market with thousands of planned new sites.
+Backlog & Early Fiscal 2027 Activity -- "Fiscal '27, as noted in our backlog, and we're optimistic about it. It started strong." with distribution among segments, supporting confidence in order trends.
+Solar Business Exit -- CFO Brodin stated, "That was the last remaining bit of solar business we had left. That was a 30-year contract that we amended to essentially stop any further activity in the solar business. So there will be no carryforward activity in that area."
+Voltrek Earn-Out Obligations -- All payment requirements fully satisfied; no further earn-out expenses expected.
+SUMMARY
+Orion Energy Systems (
+OESX
++0.44%
+) reported a significant turnaround year, achieving company-wide profitability at the adjusted EBITDA level while growing revenue across key business segments. Management confirmed the company's entry into the data center lighting market with a new product targeted at hyperscale operators, with anticipated revenue contributions not presently included in the near-term backlog. Leadership asserted full exit from the solar business, eliminating related future financial noise, and completed all outstanding earn-out obligations tied to prior acquisitions. New store build-outs and expanded electrical contracting work within large customers support expectations for continued margin performance and reinvestment capacity.
+
+CEO Washlow highlighted "sixth consecutive quarter of positive adjusted EBITDA" as evidence of the operational reset.
+Management linked gross margin gains in lighting to improved mix, cost controls, and a nonrecurring contract payment, indicating a structurally higher margin baseline.
+Year-end available liquidity and credit facility extension position the company to address scale opportunities without near-term refinancing risk.
+Service and distribution channels are delivering incremental growth and are being supported by enhanced leadership.
+Management stated backlog does not include potential new wins from data center products, suggesting possible upside to guidance if opportunities are realized during the year.
+Guided revenue is expected to be "relatively evenly" distributed across quarters, reducing seasonality concerns for investors monitoring results intra-year.
+INDUSTRY GLOSSARY
+ESCO channel: Energy Service Company channel; a business model in which an external provider designs, installs, and often finances energy-saving projects for customers.
+Turnkey services: Comprehensive project fulfillment covering all aspects from design and installation to commissioning and service, requiring no additional vendors by the client.
+Voltrek earn-out: Contingent payments related to the prior acquisition of Voltrek, triggered upon certain post-acquisition performance milestones.
+Full Conference Call Transcript
+Sally Washlow: Thank you, Per. Good morning, everyone, and thank you for being with us today. I am pleased to report our results for Q4, our sixth consecutive quarter of positive adjusted EBITDA and for the full fiscal 2026 year. Fiscal '26 represents an exceptional year at Orion. It was a year of growth in revenue and newly achieved profitability. It was a year of strengthened incumbencies in some of our most largest customers. and it was a year of product and market expansion. You may recall from earlier calls that we discussed 3 milestones for FY '26. Milestone one, to maintain our NASDAQ listing and maximize our opportunity for growth in shareholder value. We achieved this goal.
+
+Milestone two, by the end of the third quarter, the enactment of a growth profitability and cost containment initiative that enables Orion to become a recognized long-term market leader. We achieved that goal as well. And milestone three, by the end of the fourth quarter, $84 million in revenue at or near positive adjusted EBITDA for the full fiscal year. We beat this goal with $86 million in revenue and $2 million in positive adjusted EBITDA. Looking forward, Orion's FY '27 outlook expects revenue of $95 million to $97 million, with potential upside in the number of opportunities.
+
+Based on our enhanced operating discipline, our growth outlook should once again enable Orion to achieve positive adjusted EBITDA for the full fiscal year. We have come a long way to get to this point. Fiscal '26 marked the first year in some time that we experienced growth and positive adjusted EBITDA. Fiscal '26 represented a pivot point for this company, a year in which we embarked on a course of increased revenue, expanded profitability and elevated prominence in our competitive market. When I arrived as CEO of Orion at the beginning of FY '26, I was immediately inspired by the team that greeted me.
+
+We agreed that FY '26 could be more than just a transition year of riding the ship. We had a stellar reputation for quality, along with a track record of growing our business with large Fortune 50 global leaders. We had an unrivaled built from the ground up proprietary supply chain that served to insulate our customers from much of the brunt of [ exogenous shocks ]. And we had tailwinds from a multiyear invigoration of U.S. manufacturing facilities, private and public sector vehicle fleets and AI-driven data centers like the data center product that we announced last week. To put it simply, we planned, measured and executed.
+
+And the results of FY '26 represented not only a market improvement over the previous fiscal year, but a jump above our originally announced expectations. FY '26 was indeed a year of rightsizing as we enacted a sustained and necessary cost containment initiative. It was a year of sharpened focus on profitable growth illustrated by our 6 consecutive quarters of positive adjusted EBITDA through the end of the fiscal year. And it was a year of maintaining our NASDAQ listing and bolstering our balance sheet. Through it all, we received a demonstratable show of support in the market by existing and new shareholders.
+
+The results and expectations we report today are testimony to Orion's success on a number of fronts, including renewed aggressiveness in acquiring and expanding within large customers, a quantum improvement in the size and quality of our sales funnel, disciplined cost containment and an ongoing build-out of our robust proprietary supply chain. Today's report also speaks to some key growth parts that put us on this up and to the right trajectory. Our focus on expanding opportunities and revenues within new and existing large customers in the automotive, retail and public sectors, whether by deployments of LED lighting systems, electrical infrastructure or EV charging infrastructure.
+
+Our focus on maximizing our service to long-term EV charging customers, which is enabling us to manage our adjustment to the present environment in the sector and our focus on adding capabilities such as battery energy storage systems and electrical contracting. Adding capabilities continues to be a theme here at Orion as last week's entry into the booming data center market demonstrated. As you undoubtedly know, there is an immense amount of new construction of data centers being driven largely by exponentially increasing demand for artificial intelligence and cloud computing. About 3,000 new data centers are being planned in the United States. ABI Research expects more than 10,000 to be operational by 2030, with another 2,000 coming online before 2035.
+
+Orion fully intends to be the LED lighting provider of choice for many of these thousands of data centers. And as we announced last week, we have the product to do it. Orion's multipurpose linear lighting fixture brings to this current data center building boom a customizable product designed specifically to fit the architecture and floor plan of data centers. We listen to our customers. and we developed a product that fits the needs of these hyperscale data centers and ensures the flexibility and shortened lead times that come with building in-house right here in our Wisconsin manufacturing facility. And the needs of data centers are significant.
+
+Energy-efficient lighting is a priority in data centers whose AI-driven applications impose unprecedented demands on energy, requiring unprecedented levels of power data centers are prioritizing solutions to minimize their electricity consumption and carbon footprint. Hyperscale data centers emphasize 3 particular themes that we address squarely in the development of the product. AI workloads are increasing power density and uptime requirements across data centers. expanding demand for infrastructure solutions that can improve efficiency and lower total operating costs. For operators and investors alike, solutions that reduce energy consumption can offer meaningful economic value when deployed at scale across large footprint facilities.
+
+As AI-driven data center construction accelerates, products that combine performance, scalability, cost effectiveness and ease of integration may be positioned to benefit from a long-term infrastructure upgrade cycle. Hyperscale data centers can count on Orion because we are known for delivering on these points. We are reliable, durable and scalable. We are on time and on budget and we do it with our own proprietary supply chain, which serves to reduce customers' exposures to choke points, lengthening dwell times and market disruptions. Data centers are now learning what other large industrial facilities in retail, automotive and public sectors already know, Orion can provide the most energy efficient and reliable LED lighting solutions in the marketplace.
+
+We intend to become a provider of choice in this growing and long-term market opportunity. We have the same ambitions for incumbency and data centers that we have in our long-time historic markets. Decade after decade long-time customers stay with us and expand their scope of work with us because we are consistently deliver unsurpassed quality, unsurpassed reliability unsurpassed scalability and unsurpassed ROI. Again, today's report marks a milestone for Orion, and I am extremely optimistic about our future. With that, let me turn to Orion's CFO, Per Brodin, to review our financial performance and outlook.
+
+John Brodin: Thank you, Sally. Today, we reported fiscal Q4 '26 revenue of $25.7 million as compared to $20.9 million in Q4 '25. For fiscal '26 as a whole, we reported $86.3 million in revenue compared with $79.7 million in fiscal '25. LED segment revenue in Q4 '26 was $20.3 million compared to $20.9 million in Q4 '25. For fiscal '26 as a whole, LED lighting segment revenue was $55.9 million compared to $47.7 million in fiscal '25. Q4 lighting segment revenue performance reflected increased project activity and distribution channel sales, partially offset by a decrease in ESCO channel sales.
+
+Orion's expanded LED line project pipeline and efforts to drive growth in the distribution channel are continuing to contribute to higher expected revenues in fiscal '27. Lighting achieved a Q4 '26 gross margin of 40.4% versus 28.3% in Q4 '25. Lighting margin benefited from a contract amendment payment of $1.3 million, which did not have any associated cost of sales. Excluding the effect of that payment, lighting segment margin would still have exceeded 30%. For fiscal '26 as a whole, lighting recorded gross margin of 33.8% compared to 26.6% in fiscal '25. Maintenance segment revenue decreased to $3.2 million in Q4 '26 from $4.1 million in Q4 '25, reflecting the timing of some seasonal work.
+
+We achieved a maintenance segment gross margin of 22.1% in Q4 '26 versus 24.6% in Q4 '25. For the entirety of fiscal '26, Maintenance segment revenue increased 6% to $16 million while gross margin came in at 23.7% in fiscal '26 versus 18.2% in the year-ago period. EV charging solutions revenue was $2.3 million in Q4 '26 compared to $5.8 million in Q4 '25 reflecting the sector-wide uncertainty regarding the market environment in the United States and a very strong performance in Q4 '25. EV achieved a gross margin of 27.5% in Q4 '26 versus 27.9% in Q4 '25.
+
+For fiscal '26 as a whole, the EV charging segment revenue was $14.4 million versus $16.8 million in fiscal '25, while gross margin came in at 37.7% in fiscal '26 versus 28.3% in the year ago period. Our overall gross profit margin increased to 37% in Q4 '26 versus 27.5% in Q4 '25. For the entirety of fiscal '26, gross margin came in at 32.6% compared to 25.4% in fiscal '25. We expect our overall gross margin to remain strong throughout fiscal '27 although it will likely vary on a quarterly basis due to revenue mix and volume. Total operating expenses increased to $10.3 million in Q4 '26 from $8.4 million in Q4 '25.
+
+Q4 '26 OpEx included $1.7 million of earn-out true-up expense and $1.1 million for a noncash write-off of solar assets, while Q4 '25 included $0.5 million of earn-out expense and $0.9 million for severance. For the year as a whole, total operating expenses declined to $29.7 million in fiscal '26 from $30.8 million in fiscal '25, with fiscal '26 reflecting ongoing overhead and personnel expense reductions and the $1.7 million of earn-out expense and $1.1 million of noncash solar asset write-off and $500,000 of executive sign-on bonus.
+
+With stronger gross margin and lower operating expenses, Orion's Q4 '26 net loss was $1.5 million or $0.39 per share compared to a net loss of $2.9 million or $0.88 per share in fiscal Q4 '25. For the fiscal year as a whole, FY '26 net loss was $3.2 million or $0.89 per share compared to a net loss of $11.8 million or $3.59 per share in fiscal '25. Adjusted EBITDA improved to a positive $0.8 million in Q4 '26 versus $0.2 million in Q4 '25. As for the full year, adjusted EBITDA improved to positive $2.2 million in fiscal '26 versus a negative $2.9 million in fiscal '25, reflecting increased gross profit cost control and financial discipline.
+
+As Sally mentioned, this was Orion's sixth consecutive quarter of positive adjusted EBITDA. Year-to-date, cash used by operation activities was $1.1 million in fiscal '26 compared to cash provided by operations of $0.6 million in fiscal '25. During fiscal '26, we also had a net paydown on our revolving credit borrowings in the amount of $4 million. Net working capital was $11 million at Q4 '26 versus $8.7 million at year-end fiscal '25. Available financial liquidity at the end of fiscal '26 was $15.4 million versus $13 million at the previous year-end.
+
+Of additional note, we raised net proceeds of $6.4 million in fiscal '26 through the issuance of 500,000 shares of common stock which provides us with growth capital and the ability to pay down amounts outstanding on our revolving credit facility. Plus, effective in May, we extended the maturity of our credit facility from June 30, 2027 to June 30, 2030. Regarding our outlook, as Sally noted, we have increased our expectations for growth and profitability for our current fiscal year, which began April 1, having announced that we expect a continued increase in profitable growth in fiscal '27 with positive adjusted EBITDA on revenue of between $95 million and $97 million. And this concludes our prepared remarks.
+
+Operator, would you please commence the question-and-answer session.
+
+Operator: [Operator Instructions] And our first question is going to come from the line of Eric Stine with Craig-Hallum Capital Group.
+
+Eric Stine: So I mean, obviously, strongest backlog that you've had in,gosh, 4 or 5 years. I'm just curious if you can give any commentary on what you're seeing early in fiscal '27. And I know things are hard to predict, but is it fair to say that, I mean, your confidence level is quite high. I mean, do you expect to see these order trends and this backlog growth continue throughout fiscal '27?
+
+Sally Washlow: Yes. Fiscal '27, as noted in our backlog, and we're optimistic about it. It started strong. And when we look at the backlog, it's pretty distributed amongst our various segments as well. So we think we're off to a good start, and we'll continue to grow that backlog and execute the projects that we need to deliver on.
+
+Eric Stine: Okay. And maybe just on the -- you're executing on the outdoor lighting opportunity with one of your long-term customers. Maybe just an update on -- that was going to be split between Q4 and Q1 and maybe some in Q2. So maybe talk about the linearity of the revenues that you expect in fiscal '27 when you factor that in.
+
+John Brodin: I guess I'll take that as speaking to overall revenue expectations for the year. I think we just completed Q4, which had revenue north of $25 million. And if you look at our guidance for '26 -- I'm sorry, for '27, I think our expectation is the revenue will play out relatively evenly over the year.
+
+Eric Stine: Okay. Got it. And I guess for my last one, I'll just ask about -- I know that this is an opportunity with a long-term customer. You've done 2,000-plus sites, and I know that there was some opportunity that you could expand in these specific 200-plus locations and maybe expand to some indoor work. Just any commentary on where that stands.
+
+Sally Washlow: Yes. Those -- that opportunity continues to move along in what I'd say a positive way. There's testing going on to finalize selections, and we're optimistic that we'll continue with that opportunity.
+
+Eric Stine: And when you say testing, I mean, is that testing -- is it you being considered versus someone else? Or is it just testing kind of to figure out next steps?
+
+Sally Washlow: Good clarification point. Within locations. So we don't believe anyone is in the mix.
+
+Operator: Our next question comes from the line of Sameer Joshi with H.C. Wainwright.
+
+Sameer Joshi: Congratulations on a strong year and the outlook looks pretty good as well. On the fourth quarter '26, the LED lighting revenue, in particular, were pretty strong $20-plus million relative to $11 million to $13 million in the prior 4 quarters. Was this because of some contract timing? Or are we seeing this strong performance and expecting it for the next few quarters?
+
+Sally Washlow: I'll start with this question. So the -- we expect this strength to continue within the segment, not only from the fourth quarter, but the coming quarters as well. And it was really from a mix of the projects that we delivered, some of the electrical contracting that we've been talking about was in there and along with the services that we deliver within the segment as well. So our expectation is for this to continue in the coming quarters.
+
+Sameer Joshi: Yes, I'm glad you mentioned the electrical contracting business. I think you have around $21 million in array of those projects with 7 customers. Can you give us a little bit insight into what that electric contracting work entails? And also, do you have working capital to service this kind of a backlog?
+
+Sally Washlow: So yes, we have the working capital to service the backlog. In terms of more color on what some of these contracts look like, examples are with some of our larger customers, work that we have not been doing before, but in terms of new store build-out and doing all of the electrical contracting within their new stores. Other examples are expanding work that we have within EV infrastructure and doing electrical contracting work in that realm as well. So we're seeing it from logistics customers, retailers, within some of the EV contracts that we have as well, where we're adding on additional work to those contracts.
+
+Sameer Joshi: Understood. And then you -- earlier this week or last week, you announced the entry into the data center AI domain, and you highlighted it on this call as well. Does the backlog that you spoke of include any of this? I mean I know it's early days, but should we expect upside to this $95 million to $97 million based on your success potential success in the data center market?
+
+Sally Washlow: So our backlog really reflects that -- does not reflect that currently. We do have high expectations for this segment. As you can imagine, though, we developed the product. We've been working closely with customers on this product. but we think that a lot of the revenue will come later in the year as these come online -- sorry, later in our fiscal year and then in the coming years as well.
+
+Sameer Joshi: Okay. And just last one. I think you have mentioned it in the commentary in the press release. But is the Voltrek earn-out payment done? I mean are all the payments done and no more earn-outs should be expected in the coming quarters?
+
+Sally Washlow: Yes. And Per can expand on it.
+
+John Brodin: Yes. All payment requirements are fully satisfied so that you'll see none of that carrying into fiscal '27 or beyond.
+
+Sameer Joshi: Congrats on the progress and good luck.
+
+Operator: Our next question comes from the line of Gowshi Sri with Singular Research.
+
+Gowshihan Sriharan: Sally, congratulations to you and to your team completing your first year as CEO. Seemingly, a genuine turnaround is in progress. Impressive set of results. I just wanted to have a few questions. A few questions designed to kind of stress test the momentum going into fiscal '27. I know the gross margin came in at 37%. If we strip out the solar revenue, it looks like it's around 33%-34%. But even if it's around 31%, as we think about fiscal '27, is that 31%-32% still kind of the right structural flow or does the mix shift towards electrical contracting, larger LED projects give you confidence that it can be sustained at a higher level?
+
+John Brodin: I think we can sustain at what would be a high level for us. And we think we're very proud of the margins we achieved in fiscal '26. In '27, I think a round number of 30% is probably the way to think about this as we enter the year. And as I mentioned, somewhat subject to quarter-by-quarter mix shifts that can occur. But based on our, say, the infrastructure we put in place a year or so ago, plus some of the other changes we've made with the increases in sales volume, we believe that we can achieve margin at that level.
+
+Gowshihan Sriharan: Got you. And net-net, is Orion exiting the solar business? Is there -- will there be any noise still embedded in the fiscal '27 numbers?
+
+John Brodin: That was the last remaining bit of solar business we had left. That was a 30-year contract that we amended to essentially stop any further activity in the solar business. So there will be no carryforward activity in that area.
+
+Gowshihan Sriharan: Yes. I know you guys in your last call, you were still at the early stages of electrical infrastructure. This seems like kind of a genuine segment now. Are you at a point where you're considering reporting it separately? And what kind of revenue run rate should we think of as we kind of think about fiscal '27 and beyond?
+
+John Brodin: Yes. It's really something we haven't thought about breaking out separately at this point. It certainly has some momentum behind it as we've stated in different releases that we put out. That is managed largely in our services group. That's part of the turnkey services. So at this point, we think that would remain managed by that group and reported. And to the extent we have significant projects that come along, we would announce those as they -- the orders are received.
+
+Gowshihan Sriharan: Got you. And I'll sneak in a last one on the EV side. With the battery energy storage deployment in California, what is the approximate revenue per site? And do you have a target number by -- for '27? And is it embedded in the $95 million, $97 million? Or is it kind of still an upside to it?
+
+Sally Washlow: It's part of our $95 million to $97 million. We think there's a lot of opportunity within that segment, whether it's through the EV work that we do or other work that we do. with customers as well. But we're pretty early in that solution.
+
+Operator: Our next question comes from the line of Bill Dezellem with Tieton Capital Management.
+
+William Dezellem: Two questions to begin with. First of all, I have never gone into a data center and looked at the roof or the ceiling as the case may be, would you walk us through what's different about your data center product and why they need anything different or special than any other 4-wall box that has a ceiling?
+
+Sally Washlow: Well, I won't get too technical on the call, but what we've done is we had a multipurpose linear light that we worked closely with the end users to make sure that it was hitting the right efficiency that they needed as well as some certain other requirements that they had that were under NDA for some of it. And so it's a product that we've made that we have customized for data centers. And then another part of the interest from data centers was our ability to customize and make it within our Wisconsin facility to shorten the lead times as well as their rollouts and their needs grow.
+
+William Dezellem: Great. And that sales effort, is that taking place through ESCO partners? Or are you going direct? How does that sales process look like it will unfold?
+
+Sally Washlow: In particular, this started with our distribution channel, and the partners within that channel, although because of our manufacturing and ability to customize, we think that this solution could be utilized by our other channels as well.
+
+William Dezellem: Great. And then relative to the [indiscernible] and partner channels, you, in the last several quarters, enhanced the leadership in that arena. Would you bring us up to speed as to those activities and what -- where we're at in the process of bringing that back to a well-oiled machine?
+
+Sally Washlow: So Bill, you cut out at the beginning of your question, but I think it is surrounding that channel specifically the distribution channel.
+
+William Dezellem: It is and the leadership changes that you made and the implications.
+
+Sally Washlow: Yes, yes. So month-over-month, we're growing in that channel and specifically working closely with customers, that the leader of that channel brought this opportunity to us, and we've been working, obviously, for quite some time to bring it together. And it is leadership like that, that will help us expand in that channel and continue to grow and have the right strategy to not only the strategy to service that channel but then also what other products do we need to bring to help us be stronger in that channel as well. So we think there's a lot of opportunity there.
+
+William Dezellem: Sally, I will follow up on that last comment relative to products to service that channel. There are gaps that are meaningful revenue opportunities that you all are in process of addressing with your product lineup?
+
+Sally Washlow: I think another product to speak to that we've talked about is a roadway product and that's another opportunity that we're working through the distribution channel as well. So that's a product that goes on the streets and highways of America. So we think that there's opportunity as well there.
+
+Operator: This concludes our question-and-answer session, and I will turn the call back to Sally Washlow for concluding remarks.
+
+Sally Washlow: I want to thank everyone again for taking time today to join us. We look forward to updating investors on our first quarter FY '27 call in August. We look forward to meeting with many of you, whether in person or virtually between now and then. We will be presenting at a number of conferences, so please watch for our forthcoming announcements regarding scheduling. Please also reach out to our Investor Relations team to set up a meeting for any other information. Their contact information is at the bottom of today's press release. Many thanks again for your interest in Orion. I look forward to continuing to update you on our progress.
+
+Operator: This concludes today's conference call. Thank you for participating, and you may now disconnect. Everyone, have a great day.

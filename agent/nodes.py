@@ -46,8 +46,8 @@ def _call_groq_with_retry(prompt: str, max_retries: int = 3) -> str:
 def router_node(state: dict) -> dict:
     
     """
-    Classifies the query as single_quarter or multi_quarter.
-    Uses Gemini for this simple classification task.
+    Classifies the query as single_quarter, multi_quarter, or general.
+    Uses Groq for this simple classification task.
     """
     query = state["query"]
 
@@ -56,13 +56,16 @@ def router_node(state: dict) -> dict:
 Question: "{query}"
 
 Classify this as ONE of:
-- "single_quarter": asks about one specific period, company performance, tone, risks, guidance
+- "single_quarter": asks about one specific period, company performance, tone, risks, guidance from an earnings call
 - "multi_quarter": explicitly compares two periods, asks about changes over time, uses words like "compare", "changed", "last quarter vs", "trend"
+- "general": a general knowledge question, definition, explanation, or conceptual question that does NOT require looking up specific earnings call transcript data (e.g. "what is EPS?", "explain gross margin", "how do earnings calls work?", "tell me about P/E ratio")
 
 Respond with ONLY a JSON object, nothing else:
 {{"mode": "single_quarter", "reasoning": "brief reason"}}
 or
-{{"mode": "multi_quarter", "reasoning": "brief reason"}}"""
+{{"mode": "multi_quarter", "reasoning": "brief reason"}}
+or
+{{"mode": "general", "reasoning": "brief reason"}}"""
 
     try:
         text = _call_groq_with_retry(prompt)
@@ -79,6 +82,10 @@ or
         result = json.loads(text)
         mode = result.get("mode", "single_quarter")
 
+        # Validate mode
+        if mode not in ("single_quarter", "multi_quarter", "general"):
+            mode = "single_quarter"
+
         print(f"[Router] Mode: {mode} | Reason: {result.get('reasoning', '')}")
 
         return {
@@ -91,18 +98,65 @@ or
         return {**state, "mode": "single_quarter"}
 
 
+# ── NODE 1b: GENERAL CHAT ───────────────────────────────────────────────────
+
+def general_chat_node(state: dict) -> dict:
+    """
+    Handles general financial knowledge questions that don't require
+    earnings transcript retrieval.  Uses the base Groq model directly.
+    """
+    query = state["query"]
+
+    prompt = f"""You are a helpful financial analyst assistant specializing in
+earnings calls, corporate finance, and investment analysis.
+
+Answer this question clearly and helpfully: {query}
+
+If it's about earnings calls, transcripts, or financial analysis, give a
+detailed educational answer.  Use proper financial terminology and provide
+concrete examples where relevant.  Keep it conversational but informative.
+
+Format your answer in clean markdown with headers and bullet points where
+appropriate."""
+
+    try:
+        answer = _call_groq_with_retry(prompt)
+        if answer is None:
+            answer = "Sorry, I couldn't generate a response at this time. Please try again."
+    except Exception as e:
+        print(f"[GeneralChat] Error: {e}")
+        answer = f"An error occurred while generating the response: {e}"
+
+    # Format as a report so the UI can render it with st.markdown()
+    report = f"""## 💬 General Q&A
+
+**Query:** *{query}*
+
+---
+
+{answer}
+
+---
+
+*Powered by LangGraph · Groq Llama 3.1*
+"""
+
+    print(f"[GeneralChat] Response generated for: {query[:60]}...")
+    return {**state, "report": report}
+
 # ── NODE 2: RETRIEVER ───────────────────────────────────────────────────────
 
 def retriever_node(state: dict) -> dict:
     query = state["query"]
     mode = state.get("mode", "single_quarter")
+    session_id = state.get("session_id")
     # Don't filter by ticker - dataset is multi-company
     ticker = None
 
     top_k = 8 if mode == "multi_quarter" else 5
 
     try:
-        chunks = retrieve(query, ticker=ticker, top_k=top_k)
+        chunks = retrieve(query, ticker=ticker, session_id=session_id, top_k=top_k)
 
         if not chunks:
             return {
@@ -133,6 +187,7 @@ def retriever_node(state: dict) -> dict:
 def analyzer_node(state: dict) -> dict:
     query = state["query"]
     chunks = state.get("retrieved_chunks", [])
+    model_choice = state.get("model_choice", "groq")
 
     if not chunks:
         return {
@@ -155,8 +210,22 @@ def analyzer_node(state: dict) -> dict:
         )
     context = "\n\n".join(context_parts)[:3000]
 
-    analysis = _call_groq_analyzer(query, context)
-    print(f"[Analyzer] Complete | Sentiment: {analysis.get('sentiment')}")
+    analysis = None
+
+    # Route based on model_choice
+    if model_choice == "mistral":
+        print("[Analyzer] Trying finetuned Mistral 7B via HuggingFace...")
+        analysis = _call_hf_inference(query, context)
+        if analysis is None:
+            print("[Analyzer] HF model unreachable, falling back to Groq")
+
+    # Default to Groq, or fallback if HF failed
+    if analysis is None:
+        if model_choice == "mistral":
+            print("[Analyzer] Using Groq as fallback")
+        analysis = _call_groq_analyzer(query, context)
+
+    print(f"[Analyzer] Complete | Model: {'mistral→groq fallback' if model_choice == 'mistral' and analysis.get('_source') != 'hf' else model_choice} | Sentiment: {analysis.get('sentiment')}")
     return {**state, "analysis": analysis}
 
 
@@ -237,7 +306,7 @@ Respond with ONLY a JSON object, no markdown, no backticks:
   "sentiment": "positive/negative/neutral/mixed",
   "beat_miss_signal": "beat/miss/in-line/undeterminable",
   "confidence": "high/medium/low",
-  "summary": "2-3 sentence analyst summary"
+  "summary": "4-5 sentence detailed analyst summary covering performance, tone, and outlook"
 }}"""
 
     try:
@@ -288,73 +357,156 @@ def _parse_analysis_text(text: str, query: str) -> dict:
 
 def report_node(state: dict) -> dict:
     """
-    Formats the analysis into a clean markdown report.
-    Uses Gemini to produce natural language formatting.
+    Formats the analysis into a comprehensive, visually structured markdown
+    report.  Output is a plain markdown string consumed by st.markdown() in
+    the Streamlit UI — no Streamlit imports are used here.
     """
     query = state["query"]
     analysis = state.get("analysis") or {}
     chunks = state.get("retrieved_chunks") or []
-    ticker = state.get("ticker", "Unknown")
     mode = state.get("mode", "single_quarter")
 
-    # Build sources section
-    sources = []
-    for i, chunk in enumerate(chunks[:3]):
-        sources.append(
-            f"> **[Source {i+1}]** {chunk['ticker']} | "
-            f"{chunk['date']} | {chunk['speaker']} "
-            f"(relevance: {chunk['score']})\n"
-            f"> *\"{chunk['text'][:200]}...\"*"
+    # ── Sources ──────────────────────────────────────────────────────────
+    sources_lines: list[str] = []
+    for i, chunk in enumerate(chunks[:5]):
+        score_pct = f"{chunk['score'] * 100:.0f}%"
+        source_id = chunk.get("filename") or f"{chunk['ticker']} · {chunk['date']}"
+        sources_lines.append(
+            f"> **[Source {i+1}]** {source_id} · {chunk['speaker']} "
+            f"(relevance {score_pct})\n"
+            f"> *\"{chunk['text'][:250]}…\"*"
         )
-    sources_text = "\n\n".join(sources)
+    sources_text = "\n\n".join(sources_lines) if sources_lines else "> _No sources available._"
 
-    # Build the report
-    key_claims = "\n".join([f"- {c}" for c in analysis.get("key_claims", [])]) or "- See summary below"
-    risks = "\n".join([f"- {r}" for r in analysis.get("risks", [])]) or "- No specific risks identified"
+    # ── Key Claims ───────────────────────────────────────────────────────
+    claims = analysis.get("key_claims", [])
+    if claims:
+        key_claims_md = "\n".join(f"- {c}" for c in claims)
+    else:
+        key_claims_md = "- _No specific claims extracted — see summary below._"
+
+    # ── Risk Factors ─────────────────────────────────────────────────────
+    risks = analysis.get("risks", [])
+    if risks:
+        risks_md = "\n".join(f"- ⚠️ {r}" for r in risks)
+    else:
+        risks_md = "- _No notable risk factors identified in the retrieved context._"
+
+    # ── Expanded multi-paragraph summary ─────────────────────────────────
+    raw_summary = analysis.get("summary", "No summary available.")
+
+    # Build a richer synthesis that weaves in claims + risks
+    summary_parts: list[str] = [raw_summary]
+
+    if claims:
+        claims_narrative = (
+            "**Key findings from the call include:** "
+            + "; ".join(claims[:4])
+            + "."
+        )
+        summary_parts.append(claims_narrative)
+
+    if risks:
+        risk_narrative = (
+            "**On the risk side, management flagged the following concerns:** "
+            + "; ".join(risks[:3])
+            + ". Investors should weigh these factors when evaluating "
+            "forward guidance and medium-term positioning."
+        )
+        summary_parts.append(risk_narrative)
+
+    # Confidence caveat
+    confidence = analysis.get("confidence", "low")
+    if confidence == "low":
+        summary_parts.append(
+            "_**Note:** The analysis confidence is **low** — the retrieved "
+            "context may not fully cover the question. Consider refining "
+            "the query or uploading more transcript data._"
+        )
+    elif confidence == "medium":
+        summary_parts.append(
+            "_**Note:** Analysis confidence is **medium**. The retrieved "
+            "excerpts partially address the question; additional context "
+            "could improve precision._"
+        )
+
+    expanded_summary = "\n\n".join(summary_parts)
+
+    # ── Tone & Signals table ─────────────────────────────────────────────
+    tone = analysis.get("tone", "N/A")
+    sentiment = analysis.get("sentiment", "N/A")
+    beat_miss = analysis.get("beat_miss_signal", "N/A")
+
+    # Emoji badges for quick visual scanning
+    sentiment_badge = {
+        "positive": "🟢 Positive",
+        "negative": "🔴 Negative",
+        "neutral": "🟡 Neutral",
+        "mixed": "🟠 Mixed",
+    }.get(sentiment.lower() if isinstance(sentiment, str) else "", sentiment)
+
+    beat_miss_badge = {
+        "beat": "✅ Beat",
+        "miss": "❌ Miss",
+        "in-line": "➖ In-Line",
+        "undeterminable": "❓ Undeterminable",
+    }.get(beat_miss.lower() if isinstance(beat_miss, str) else "", beat_miss)
+
+    confidence_badge = {
+        "high": "🟢 High",
+        "medium": "🟡 Medium",
+        "low": "🔴 Low",
+    }.get(confidence.lower() if isinstance(confidence, str) else "", confidence)
+
+    # ── Assemble final report ────────────────────────────────────────────
+    mode_label = mode.replace("_", " ").title()
 
     report = f"""## 📊 Earnings Analysis Report
 
-**Company:** {ticker} | **Query Type:** {mode.replace('_', ' ').title()}
+**Query:** *{query}*
+**Analysis Mode:** {mode_label}
 
 ---
 
-### 🔍 Query
-*{query}*
+### 📝 Summary & Synthesis
 
----
-
-### 📝 Summary
-{analysis.get('summary', analysis.get('key_claims', ['No summary available'])[0] if analysis.get('key_claims') else 'No summary available')}
+{expanded_summary}
 
 ---
 
 ### 🎯 Tone & Sentiment
-- **Management Tone:** {analysis.get('tone', 'N/A')}
-- **Overall Sentiment:** {analysis.get('sentiment', 'N/A')}
-- **Beat/Miss Signal:** {analysis.get('beat_miss_signal', 'N/A')}
-- **Confidence:** {analysis.get('confidence', 'N/A')}
+
+| Metric | Result |
+|:-------|:-------|
+| **Management Tone** | {tone} |
+| **Overall Sentiment** | {sentiment_badge} |
+| **Beat / Miss Signal** | {beat_miss_badge} |
+| **Confidence Level** | {confidence_badge} |
 
 ---
 
 ### 📌 Key Claims
-{key_claims}
+
+{key_claims_md}
 
 ---
 
 ### ⚠️ Risk Factors
-{risks}
+
+{risks_md}
 
 ---
 
-### 📚 Sources
+### 📚 Sources Referenced
+
 {sources_text}
 
 ---
-*Analysis powered by finetuned Mistral 7B + LangGraph*
+
+*Powered by LangGraph · Qdrant · Groq Llama 3.1*
 """
 
     print("[Report] Report generated successfully")
-
     return {**state, "report": report}
 
 

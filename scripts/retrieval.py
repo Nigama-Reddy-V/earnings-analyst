@@ -18,17 +18,25 @@ client = QdrantClient(
 def retrieve(
     query: str,
     ticker: str = None,
+    session_id: str = None,
     top_k: int = 5
 ) -> list[dict]:
     """
     Retrieve top-k relevant chunks for a query.
-    Optionally filter by ticker before doing vector search.
+    Optionally filter by ticker or session_id before doing vector search.
     """
     query_vector = embedder.encode(query).tolist()
 
     # Build optional metadata filter
     search_filter = None
-    if ticker:
+    if session_id:
+        search_filter = Filter(
+            must=[FieldCondition(
+                key="session_id",
+                match=MatchValue(value=session_id)
+            )]
+        )
+    elif ticker:
         search_filter = Filter(
             must=[FieldCondition(
                 key="ticker",
@@ -44,13 +52,9 @@ def retrieve(
         with_payload=True
     )
 
-    return[
+    return [
         {
-            "text": r.payload['text'],
-            "ticker": r.payload['ticker'],
-            "date": r.payload['date'],
-            "speaker": r.payload['speaker'],
-            "section": r.payload['section'],
+            **r.payload,
             "score": round(r.score, 4)
         }
         for r in results.points

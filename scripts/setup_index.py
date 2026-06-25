@@ -16,4 +16,10 @@ client.create_payload_index(
     field_schema=PayloadSchemaType.KEYWORD
 )
 
-print("Index created on 'ticker' field.")
+client.create_payload_index(
+    collection_name="earnings_transcripts",
+    field_name="session_id",
+    field_schema=PayloadSchemaType.KEYWORD
+)
+
+print("Indexes created on 'ticker' and 'session_id' fields.")
