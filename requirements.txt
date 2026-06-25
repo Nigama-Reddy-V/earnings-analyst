@@ -4,7 +4,6 @@ langchain-groq
 langchain-community
 langgraph
 qdrant-client
-sentence-transformers
 python-dotenv
 requests
 pypdf

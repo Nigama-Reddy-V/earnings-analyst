@@ -2,7 +2,7 @@ import os
 import json
 import sys
 from dotenv import load_dotenv
-from sentence_transformers import SentenceTransformer
+from hf_embedder import HuggingFaceEmbedder
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
 from tqdm import tqdm
@@ -12,9 +12,9 @@ load_dotenv()
 COLLECTION_NAME = "earnings_transcripts"
 VECTOR_SIZE = 384
 
-print("Loading embedding model...")
-embedder = SentenceTransformer('all-MiniLM-L6-v2')
-print("Embedding model loaded.")
+print("Loading HuggingFace API-based embedding model...")
+embedder = HuggingFaceEmbedder('sentence-transformers/all-MiniLM-L6-v2')
+print("Embedding model initialized.")
 
 client = QdrantClient(
     url=os.getenv("QDRANT_URL"),

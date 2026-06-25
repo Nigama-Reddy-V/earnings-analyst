@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from sentence_transformers import SentenceTransformer
+from hf_embedder import HuggingFaceEmbedder
 from qdrant_client import QdrantClient
 from qdrant_client.models import Filter, FieldCondition, MatchValue
 
@@ -8,7 +8,7 @@ load_dotenv()
 
 COLLECTION_NAME = "earnings_transcripts"
 
-embedder = SentenceTransformer('all-MiniLM-L6-v2')
+embedder = HuggingFaceEmbedder('sentence-transformers/all-MiniLM-L6-v2')
 client = QdrantClient(
     url=os.getenv("QDRANT_URL"),
     api_key=os.getenv("QDRANT_API_KEY")
