@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 from hf_embedder import HuggingFaceEmbedder
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
-from tqdm import tqdm
 
 load_dotenv()
 
@@ -35,8 +34,14 @@ def setup_collection():
 
 
 def embed_and_upload(chunks: list[dict], batch_size: int = 32):
+    try:
+        from tqdm import tqdm
+        iterator = tqdm(range(0, len(chunks), batch_size))
+    except ImportError:
+        iterator = range(0, len(chunks), batch_size)
+
     print(f"Uploading {len(chunks)} chunks to Qdrant...")
-    for i in tqdm(range(0, len(chunks), batch_size)):
+    for i in iterator:
         batch = chunks[i:i + batch_size]
         texts = [c['text'] for c in batch]
         vectors = embedder.encode(texts, show_progress_bar=False).tolist()
