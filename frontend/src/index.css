@@ -33,9 +33,10 @@
   pointer-events: none;
   font-family: 'Inter', monospace;
   font-weight: 700;
-  animation: floatUp 20s linear infinite;
+  animation: floatUp 20s linear infinite backwards;
   white-space: nowrap;
   user-select: none;
+  opacity: 0;
 }
 
 body {
