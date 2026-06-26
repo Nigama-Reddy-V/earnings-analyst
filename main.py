@@ -110,7 +110,7 @@ def debug_check():
     
     # Test DNS resolution
     dns_results = {}
-    for host in ["google.com", "api.groq.com", "api-inference.huggingface.co", "huggingface.co", "router.huggingface.co"]:
+    for host in ["google.com", "api.groq.com", "api-inference.huggingface.co", "api-inference.hf.co", "huggingface.co", "router.huggingface.co"]:
         try:
             ip = socket.gethostbyname(host)
             dns_results[host] = f"Resolved to {ip}"
