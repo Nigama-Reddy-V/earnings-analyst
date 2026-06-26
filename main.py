@@ -104,9 +104,19 @@ def health_check():
 @app.get("/debug")
 def debug_check():
     import requests
+    import socket
     hf_token = os.getenv("HF_TOKEN")
     hf_token_masked = f"{hf_token[:5]}...{hf_token[-5:]}" if hf_token else "NOT_SET"
     
+    # Test DNS resolution
+    dns_results = {}
+    for host in ["google.com", "api.groq.com", "api-inference.huggingface.co", "huggingface.co", "router.huggingface.co"]:
+        try:
+            ip = socket.gethostbyname(host)
+            dns_results[host] = f"Resolved to {ip}"
+        except Exception as e:
+            dns_results[host] = f"Failed: {str(e)}"
+            
     # Test Hugging Face API connection
     hf_status = "unknown"
     hf_response_text = ""
@@ -129,6 +139,7 @@ def debug_check():
     return {
         "HF_TOKEN_configured": hf_token is not None,
         "HF_TOKEN_masked": hf_token_masked,
+        "DNS_resolution_test": dns_results,
         "HF_API_status": hf_status,
         "HF_API_response_preview": hf_response_text,
         "QDRANT_URL_configured": os.getenv("QDRANT_URL") is not None,
