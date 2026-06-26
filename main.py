@@ -125,8 +125,9 @@ def debug_check():
         hf_headers["Authorization"] = f"Bearer {hf_token}"
     
     try:
+        # Try new router URL
         res = requests.post(
-            "https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2",
+            "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2",
             headers=hf_headers,
             json={"inputs": ["test"]},
             timeout=10
