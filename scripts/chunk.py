@@ -15,8 +15,9 @@ def split_by_speaker(text: str) -> List[dict]:
     'OPERATOR:', 'TIM COOK:', 'LUCA MAESTRI:', 'ANALYST:'
     """
     # Pattern: ALL CAPS name followed by colon (common in earnings transcripts)
+    # Matches either ALL CAPS or Title Case speaker names (with optional company names in parentheses)
     speaker_pattern = re.compile(
-        r'\n([A-Z][A-Z\s\.\-]{2,40}):\s*\n?', re.MULTILINE
+        r'\n([A-Z][A-Za-z0-9\s\.\-\(\)]{1,45}):\s*\n?', re.MULTILINE
     )
 
     segments = []
@@ -29,6 +30,12 @@ def split_by_speaker(text: str) -> List[dict]:
 
     for i, match in enumerate(matches):
         speaker = match.group(1).strip()
+        
+        # Skip section headers, lists, or meta text that end with colon
+        speaker_lower = speaker.lower()
+        if any(word in speaker_lower for word in ["participant", "part ", "preliminary", "disclaimer", "disclosure"]):
+            continue
+            
         start = match.end()
         end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
         content = text[start:end].strip()

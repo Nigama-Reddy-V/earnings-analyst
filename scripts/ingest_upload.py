@@ -29,10 +29,11 @@ def extract_text(uploaded_file) -> str:
         reader = pypdf.PdfReader(file_obj)
         return "\n".join(page.extract_text() for page in reader.pages)
     else:
-        if hasattr(uploaded_file, "read"):
-            content = uploaded_file.read()
-        elif hasattr(uploaded_file, "file") and hasattr(uploaded_file.file, "read"):
+        # Check underlying sync file object first to avoid reading async coroutine in FastAPI
+        if hasattr(uploaded_file, "file") and hasattr(uploaded_file.file, "read"):
             content = uploaded_file.file.read()
+        elif hasattr(uploaded_file, "read"):
+            content = uploaded_file.read()
         else:
             raise ValueError("Invalid file object provided to extract_text")
         
