@@ -101,6 +101,40 @@ async def chat_endpoint(request: ChatRequest):
 def health_check():
     return {"status": "ok"}
 
+@app.get("/debug")
+def debug_check():
+    import requests
+    hf_token = os.getenv("HF_TOKEN")
+    hf_token_masked = f"{hf_token[:5]}...{hf_token[-5:]}" if hf_token else "NOT_SET"
+    
+    # Test Hugging Face API connection
+    hf_status = "unknown"
+    hf_response_text = ""
+    hf_headers = {}
+    if hf_token:
+        hf_headers["Authorization"] = f"Bearer {hf_token}"
+    
+    try:
+        res = requests.post(
+            "https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2",
+            headers=hf_headers,
+            json={"inputs": ["test"]},
+            timeout=10
+        )
+        hf_status = f"HTTP {res.status_code}"
+        hf_response_text = res.text[:200]
+    except Exception as e:
+        hf_status = f"Error: {str(e)}"
+        
+    return {
+        "HF_TOKEN_configured": hf_token is not None,
+        "HF_TOKEN_masked": hf_token_masked,
+        "HF_API_status": hf_status,
+        "HF_API_response_preview": hf_response_text,
+        "QDRANT_URL_configured": os.getenv("QDRANT_URL") is not None,
+        "GROQ_API_KEY_configured": os.getenv("GROQ_API_KEY") is not None
+    }
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
