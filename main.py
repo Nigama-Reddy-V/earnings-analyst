@@ -103,43 +103,50 @@ def health_check():
 
 @app.get("/debug")
 def debug_check():
-    import os
-    from huggingface_hub import InferenceClient
-    
-    hf_token = os.getenv("HF_TOKEN")
-    hf_token_masked = f"{hf_token[:5]}...{hf_token[-5:]}" if hf_token else "NOT_SET"
-    
-    # Test InferenceClient
-    client_status = "unknown"
-    client_preview = ""
+    import traceback
     try:
-        client = InferenceClient(token=hf_token)
-        res = client.feature_extraction(
-            model="sentence-transformers/all-MiniLM-L6-v2",
-            text="test text for embeddings"
-        )
-        # Convert memoryview/numpy/list to list representation for preview
-        import numpy as np
-        if isinstance(res, np.ndarray):
-            res_list = res.tolist()
-        elif isinstance(res, memoryview):
-            res_list = list(res)
-        else:
-            res_list = res
-            
-        client_status = "success"
-        client_preview = f"Type: {type(res)}, Length: {len(res_list)}, Preview: {str(res_list[:5])}"
-    except Exception as e:
-        client_status = f"Failed: {str(e)}"
+        import os
+        from huggingface_hub import InferenceClient
         
-    return {
-        "HF_TOKEN_configured": hf_token is not None,
-        "HF_TOKEN_masked": hf_token_masked,
-        "InferenceClient_status": client_status,
-        "InferenceClient_preview": client_preview,
-        "QDRANT_URL_configured": os.getenv("QDRANT_URL") is not None,
-        "GROQ_API_KEY_configured": os.getenv("GROQ_API_KEY") is not None
-    }
+        hf_token = os.getenv("HF_TOKEN")
+        hf_token_masked = f"{hf_token[:5]}...{hf_token[-5:]}" if hf_token else "NOT_SET"
+        
+        # Test InferenceClient
+        client_status = "unknown"
+        client_preview = ""
+        try:
+            client = InferenceClient(token=hf_token)
+            res = client.feature_extraction(
+                model="sentence-transformers/all-MiniLM-L6-v2",
+                text="test text for embeddings"
+            )
+            # Convert memoryview/numpy/list to list representation for preview
+            import numpy as np
+            if isinstance(res, np.ndarray):
+                res_list = res.tolist()
+            elif isinstance(res, memoryview):
+                res_list = list(res)
+            else:
+                res_list = res
+                
+            client_status = "success"
+            client_preview = f"Type: {type(res)}, Length: {len(res_list)}, Preview: {str(res_list[:5])}"
+        except Exception as e:
+            client_status = f"Failed: {str(e)}"
+            
+        return {
+            "HF_TOKEN_configured": hf_token is not None,
+            "HF_TOKEN_masked": hf_token_masked,
+            "InferenceClient_status": client_status,
+            "InferenceClient_preview": client_preview,
+            "QDRANT_URL_configured": os.getenv("QDRANT_URL") is not None,
+            "GROQ_API_KEY_configured": os.getenv("GROQ_API_KEY") is not None
+        }
+    except Exception as e:
+        return {
+            "error": str(e),
+            "traceback": traceback.format_exc()
+        }
 
 if __name__ == "__main__":
     import uvicorn
