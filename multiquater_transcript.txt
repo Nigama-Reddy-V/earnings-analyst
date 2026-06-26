@@ -1,0 +1,110 @@
+================================================================================
+AERONEXUS TECHNOLOGIES (NASDAQ: ANXT)
+FISCAL YEAR 2025 MULTI-QUARTER EARNINGS CALL TRANSCRIPTS
+================================================================================
+
+--------------------------------------------------------------------------------
+PART I: Q3 2025 EARNINGS CALL TRANSCRIPT
+Date: October 24, 2025
+--------------------------------------------------------------------------------
+
+Corporate Participants:
+- Sarah Jenkins, Director of Investor Relations
+- David Vance, Chief Executive Officer
+- Elena Rostova, Chief Financial Officer
+
+Conference Call Participants:
+- Mark Michael, Goldman Sachs
+- Sophia Lin, Morgan Stanley
+
+[Operator Instructions]
+
+Sarah Jenkins: 
+Good afternoon, everyone, and welcome to AeroNexus Technologies' Third Quarter Fiscal 2025 Earnings Conference Call. With me on the call today are David Vance, our CEO, and Elena Rostova, our CFO. Before we begin, I would like to remind everyone that today's discussions will contain forward-looking statements, which are subject to risks and uncertainties that could cause actual results to differ materially. 
+
+Now, I will turn the call over to David. David, please go ahead.
+
+David Vance: 
+Thank you, Sarah, and thank you all for joining us. I am incredibly pleased to report a stellar third quarter. Total revenue reached $145 million, representing a 14% growth year-over-year, significantly outpacing our guidance of $138 million to $141 million. This robust performance was driven primarily by accelerated adoption of our NexusCore Cloud enterprise licenses, where we signed three new Fortune 100 contracts this quarter. 
+
+Our gross margins held steady at a healthy 72%. We are seeing immense tailwinds from our regional expansions in Europe, which now accounts for 22% of our total revenue matrix. While supply chain friction in our legacy hardware division persists, our aggressive pivot toward a pure SaaS business model has insulated our bottom line from these macro pressures. We are incredibly optimistic about our trajectory as we head into the final stretch of the year.
+
+Elena, over to you for the financial deep dive.
+
+Elena Rostova: 
+Thank you, David. Let me walk you through the numbers in more detail. 
+
+As David mentioned, Q3 revenue was $145 million. Our GAAP net income for the quarter was $28 million, or $0.42 per diluted share, comfortably beating Wall Street consensus estimates of $0.37 per share. Operating cash flow was exceptionally strong at $34 million, up from $25 million in Q2. 
+
+Our R&D expenses stood at $30 million as we continued to invest heavily in our upcoming autonomous AI modules. Sales and marketing expenses were $42 million, slightly lower than projected due to optimized digital acquisition funnels. 
+
+Looking ahead to Q4 2025, we anticipate total revenue to be in the range of $152 million to $156 million. We expect full-year gross margins to stabilize around 71% to 73%.
+
+With that, let's open up the line for questions.
+
+Mark Michael (Goldman Sachs): 
+Congratulations on the clear beat this quarter. David, you mentioned supply chain friction in hardware. How long do you expect that to drag on margins, and are you considering phasing out hardware entirely?
+
+David Vance: 
+Thanks, Mark. The friction is annoying but manageable. It is driven by microcomponent scarcity out of APAC. We aren't abandoning hardware entirely because it acts as an anchor for our high-margin enterprise software. However, expect hardware to shrink to less than 8% of our revenue mix by early next year, which naturally expands our blended margin profile.
+
+Sophia Lin (Morgan Stanley): 
+Hi, Elena. Looking at the Q4 guidance of $152M to $156M, it seems highly confident. What specific assumptions are baked into the bottom end of that range?
+
+Elena Rostova: 
+Excellent question, Sophia. The bottom end, $152 million, assumes a conservative rollout of our updated enterprise contracts and models a standard seasonal slowdown in APAC procurement cycles. We feel highly confident in hitting at least that baseline.
+
+================================================================================
+PART II: Q4 2025 EARNINGS CALL TRANSCRIPT
+Date: January 29, 2026
+--------------------------------------------------------------------------------
+
+Corporate Participants:
+- Sarah Jenkins, Director of Investor Relations
+- David Vance, Chief Executive Officer
+- Elena Rostova, Chief Financial Officer
+
+Conference Call Participants:
+- Mark Michael, Goldman Sachs
+- Sophia Lin, Morgan Stanley
+
+Sarah Jenkins: 
+Good afternoon, and welcome to AeroNexus Technologies' Fourth Quarter and Full Year Fiscal 2025 Earnings Call. Joining us today are David Vance, CEO, and Elena Rostova, CFO. 
+
+I will now turn the call over to David.
+
+David Vance: 
+Thank you, Sarah. Today, I must present a mixed picture of our performance for the fourth quarter. Total revenue for Q4 came in at $149 million. While this represents a 6% growth year-over-year, it unfortunately missed the lower bound of our previously issued guidance range of $152 million to $156 million. 
+
+The primary culprit was an unexpected regulatory delay regarding our enterprise compliance certificates in Central Europe, which pushed out two major contract closures worth $6.5 million into Q1 of fiscal 2026. Furthermore, macroeconomic headwinds in the domestic enterprise sector led to longer sales cycles than we anticipated. 
+
+Despite this near-term revenue miss, our core metrics remain fundamentally solid. Our churn rate dropped to an all-time low of 1.2%, and customer satisfaction metrics are excellent. We are facing a temporary speed bump, not a structural failure.
+
+Elena will take you through the financials and our outlook for 2026.
+
+Elena Rostova: 
+Thank you, David. Q4 revenue was $149 million, and full-year 2025 total revenue closed out at $558 million. GAAP net income for Q4 was $19 million, resulting in an EPS of $0.29 per diluted share, which missed the consensus analyst estimate of $0.35 per share. 
+
+Our gross margin compressed slightly to 69.5% in Q4, down from 72% in Q3. This compression was due to accelerated parallel cloud infrastructure costs as we migrated European clients to local data centers to comply with the new regional mandates. 
+
+On the balance sheet, we remain resilient with $112 million in cash and cash equivalents. We are managing expenses prudently.
+
+For Q1 2026, we are issuing a cautious guidance range of $146 million to $150 million as we work through the European regulatory backlog. We expect gross margins to bounce back to 71% by Q2.
+
+We will now take questions.
+
+Mark Michael (Goldman Sachs): 
+David, the tone sounds considerably more cautious today compared to October. These European regulatory delays—are they completely out of your hands, or is there an internal execution gap here?
+
+David Vance: 
+Mark, it's a fair question, and I share your frustration. The regulations were revised late in November, requiring an unexpected sovereign audit of our data isolation architecture. It caught our compliance team off-guard, so yes, there is an internal learning curve there. However, the audits are now complete, the approvals are pending, and we expect those delayed $6.5 million in contracts to hit our books within the next 45 days. 
+
+Sophia Lin (Morgan Stanley): 
+Elena, regarding the margin compression to 69.5%. Is this the new floor? And how much more CapEx should we expect for these local European data centers?
+
+Elena Rostova: 
+Yes, Sophia, 69.5% is absolutely our floor. The heavy lifting for the data center migration CapEx occurred in Q4, totaling $9 million. CapEx will fall back down to our normalized run-rate of $3 million to $4 million per quarter starting in Q1, which is why we expect margins to recover quickly.
+
+Sarah Jenkins: 
+Thank you all for joining. This concludes our call for today.
+================================================================================
