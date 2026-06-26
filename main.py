@@ -103,46 +103,40 @@ def health_check():
 
 @app.get("/debug")
 def debug_check():
-    import requests
-    import socket
+    import os
+    from huggingface_hub import InferenceClient
+    
     hf_token = os.getenv("HF_TOKEN")
     hf_token_masked = f"{hf_token[:5]}...{hf_token[-5:]}" if hf_token else "NOT_SET"
     
-    # Test DNS resolution
-    dns_results = {}
-    for host in ["google.com", "api.groq.com", "api-inference.huggingface.co", "api-inference.hf.co", "huggingface.co", "router.huggingface.co"]:
-        try:
-            ip = socket.gethostbyname(host)
-            dns_results[host] = f"Resolved to {ip}"
-        except Exception as e:
-            dns_results[host] = f"Failed: {str(e)}"
-            
-    # Test Hugging Face API connection
-    hf_status = "unknown"
-    hf_response_text = ""
-    hf_headers = {}
-    if hf_token:
-        hf_headers["Authorization"] = f"Bearer {hf_token}"
-    
+    # Test InferenceClient
+    client_status = "unknown"
+    client_preview = ""
     try:
-        # Try new router URL
-        res = requests.post(
-            "https://router.huggingface.co/hf-inference/models/sentence-transformers/all-MiniLM-L6-v2",
-            headers=hf_headers,
-            json={"inputs": ["test"]},
-            timeout=10
+        client = InferenceClient(token=hf_token)
+        res = client.feature_extraction(
+            model="sentence-transformers/all-MiniLM-L6-v2",
+            text="test text for embeddings"
         )
-        hf_status = f"HTTP {res.status_code}"
-        hf_response_text = res.text[:200]
+        # Convert memoryview/numpy/list to list representation for preview
+        import numpy as np
+        if isinstance(res, np.ndarray):
+            res_list = res.tolist()
+        elif isinstance(res, memoryview):
+            res_list = list(res)
+        else:
+            res_list = res
+            
+        client_status = "success"
+        client_preview = f"Type: {type(res)}, Length: {len(res_list)}, Preview: {str(res_list[:5])}"
     except Exception as e:
-        hf_status = f"Error: {str(e)}"
+        client_status = f"Failed: {str(e)}"
         
     return {
         "HF_TOKEN_configured": hf_token is not None,
         "HF_TOKEN_masked": hf_token_masked,
-        "DNS_resolution_test": dns_results,
-        "HF_API_status": hf_status,
-        "HF_API_response_preview": hf_response_text,
+        "InferenceClient_status": client_status,
+        "InferenceClient_preview": client_preview,
         "QDRANT_URL_configured": os.getenv("QDRANT_URL") is not None,
         "GROQ_API_KEY_configured": os.getenv("GROQ_API_KEY") is not None
     }
