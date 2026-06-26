@@ -19,7 +19,9 @@ class HuggingFaceEmbedder:
         else:
             sentences_list = sentences
 
-        headers = {"Authorization": f"Bearer {self.hf_token}"}
+        headers = {}
+        if self.hf_token:
+            headers["Authorization"] = f"Bearer {self.hf_token}"
         embeddings = []
 
         for i in range(0, len(sentences_list), batch_size):
