@@ -283,7 +283,11 @@ export default function App() {
         <header className="w-full max-w-6xl flex justify-between items-center flex-shrink-0">
           <div className="flex items-center gap-2.5">
             <div className="w-10 h-10 rounded-xl bg-forest-900 border border-forest-800 flex items-center justify-center text-emerald-400 shadow-md">
-              <CircleDollarSign size={24} />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="24" height="24">
+                <circle cx="12" cy="12" r="10" stroke="#10b981" fill="#03140d" />
+                <line x1="12" x2="12" y1="8" y2="16" />
+                <path d="M16 8h-3a2 2 0 1 0 0 4h2a2 2 0 1 1 0 4H9" />
+              </svg>
             </div>
             <div>
               <span className="font-extrabold text-base tracking-tight text-slate-100 block">
