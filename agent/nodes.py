@@ -11,11 +11,11 @@ load_dotenv(override=False)
 
 # Add scripts folder to path so we can import retrieval.py
 sys.path.append(os.path.join(os.path.dirname(__file__), "../scripts"))
-from retrieval import retrieve
+from retrieval import retrieve  # type: ignore
 
 # Initialize Gemini - used for Router and Report nodes
 llm = ChatGroq(
-    model="meta-llama/llama-4-scout-17b-16e-instruct",
+    model="llama-3.1-8b-instant",
     api_key=os.getenv("GROQ_API_KEY"),
     temperature=0.1
 )
@@ -138,7 +138,7 @@ appropriate."""
 
 ---
 
-*Powered by LangGraph · Groq Llama 4 Scout*
+*Powered by LangGraph · Groq Llama 3.1*
 """
 
     print(f"[GeneralChat] Response generated for: {query[:60]}...")
@@ -503,7 +503,7 @@ def report_node(state: dict) -> dict:
 
 ---
 
-*Powered by LangGraph · Qdrant · Groq Llama 4 Scout*
+*Powered by LangGraph · Qdrant · Groq Llama 3.1*
 """
 
     print("[Report] Report generated successfully")

@@ -109,6 +109,9 @@ export default function App() {
 
   // Generate floating stock metrics / background particles on mount
   useEffect(() => {
+    // Ensure page starts at the top
+    window.scrollTo(0, 0);
+
     // Generate session ID
     const id = 'sess_' + Math.random().toString(36).substring(2, 15);
     setSessionId(id);
@@ -128,7 +131,7 @@ export default function App() {
         text: val,
         isPositive,
         left: `${Math.random() * 92}%`,
-        delay: `${Math.random() * 18}s`,
+        delay: `${Math.random() * 6}s`,
         duration: `${14 + Math.random() * 10}s`,
         fontSize: `${11 + Math.random() * 5}px`
       };
