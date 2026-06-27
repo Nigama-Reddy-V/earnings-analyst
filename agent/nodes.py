@@ -15,7 +15,7 @@ from retrieval import retrieve
 
 # Initialize Gemini - used for Router and Report nodes
 llm = ChatGroq(
-    model="llama-3.1-8b-instant",
+    model="meta-llama/llama-4-scout-17b-16e-instruct",
     api_key=os.getenv("GROQ_API_KEY"),
     temperature=0.1
 )
@@ -138,7 +138,7 @@ appropriate."""
 
 ---
 
-*Powered by LangGraph · Groq Llama 3.1*
+*Powered by LangGraph · Groq Llama 4 Scout*
 """
 
     print(f"[GeneralChat] Response generated for: {query[:60]}...")
@@ -503,7 +503,7 @@ def report_node(state: dict) -> dict:
 
 ---
 
-*Powered by LangGraph · Qdrant · Groq Llama 3.1*
+*Powered by LangGraph · Qdrant · Groq Llama 4 Scout*
 """
 
     print("[Report] Report generated successfully")
