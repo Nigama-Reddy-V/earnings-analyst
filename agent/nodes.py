@@ -11,7 +11,7 @@ load_dotenv(override=False)
 
 # Add scripts folder to path so we can import retrieval.py
 sys.path.append(os.path.join(os.path.dirname(__file__), "../scripts"))
-from retrieval import retrieve  # type: ignore
+from retrieval import retrieve # type: ignore
 
 # Initialize Gemini - used for Router and Report nodes
 llm = ChatGroq(
@@ -153,7 +153,7 @@ def retriever_node(state: dict) -> dict:
     # Don't filter by ticker - dataset is multi-company
     ticker = None
 
-    top_k = 8 if mode == "multi_quarter" else 5
+    top_k = 12 if mode == "multi_quarter" else 5
 
     try:
         chunks = retrieve(query, ticker=ticker, session_id=session_id, top_k=top_k)
@@ -515,8 +515,8 @@ def _validate_chunks(chunks: list, query: str) -> tuple[list, str | None]:
     if not chunks:
         return [], "No relevant content found for this query."
 
-    # Lower threshold from 0.4 to 0.25 to allow more chunks through
-    good_chunks = [c for c in chunks if c['score'] > 0.25]
+    # Use a low threshold so broad/summary queries still get enough context
+    good_chunks = [c for c in chunks if c['score'] > 0.15]
 
     if not good_chunks:
         return chunks, "⚠️ Low confidence retrieval — answers may be imprecise."
