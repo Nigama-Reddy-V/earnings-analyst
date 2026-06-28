@@ -6,7 +6,6 @@ import {
   MessageSquare, 
   Settings, 
   Loader2, 
-  BookOpen, 
   TrendingUp, 
   ShieldAlert,
   Sparkles,
@@ -249,13 +248,6 @@ export default function App() {
     }));
   };
 
-  const exampleQueries = [
-    "What was management's tone on gross margins?",
-    "Did the company beat earnings expectations?",
-    "What risks did management highlight?",
-    "What is guidance for next quarter?",
-    "what is earnings call"
-  ];
 
   return (
     <div className="min-h-screen bg-obsidian-950 text-slate-100 flex flex-col relative selection:bg-emerald-500/30 selection:text-emerald-200">
@@ -512,24 +504,7 @@ export default function App() {
 
             </div>
 
-            {/* Section: Example Queries */}
-            <div className="space-y-2.5">
-              <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                <BookOpen size={14} className="text-forest-700" />
-                Prompt Library
-              </h3>
-              <div className="flex flex-col gap-1.5">
-                {exampleQueries.map((ex, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => handleSearch(ex)}
-                    className="w-full text-left text-[11px] font-medium text-slate-450 hover:text-emerald-300 bg-obsidian-900/50 hover:bg-forest-950/30 border border-forest-900/20 px-3 py-2 rounded-lg transition-all duration-300"
-                  >
-                    {ex}
-                  </button>
-                ))}
-              </div>
-            </div>
+
 
           </div>
 
