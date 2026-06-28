@@ -56,11 +56,11 @@ def router_node(state: dict) -> dict:
 Question: "{query}"
 
 Classify this as ONE of:
-- "single_quarter": asks about SPECIFIC data from a SPECIFIC company's earnings call transcript (e.g. "What was Apple's revenue?", "What risks did the CEO mention?", "What was the guidance for next quarter?"). The question must clearly be asking to look up data from a transcript.
-- "multi_quarter": explicitly compares two or more time periods, uses words like "compare", "changed", "vs", "trend", "across quarters"
-- "general": ANY question that is conceptual, definitional, or educational — even if it uses financial terms like "tone", "margins", "EPS", "guidance". If the question does NOT reference a specific company or transcript, it is general. Examples: "what is management tone", "what is EPS", "explain gross margin", "how do earnings calls work", "what are risk factors"
+- "single_quarter": the question references a specific transcript, uploaded file, company, or earnings call. Look for phrases like "in the transcript", "from the call", "in the uploaded file", "the company's", or mentions of a specific company name/ticker. Examples: "What is management tone in the transcript?", "What was Apple's revenue?", "What risks did they mention in the call?", "Summarize the uploaded earnings call"
+- "multi_quarter": explicitly compares two or more time periods. Uses words like "compare", "changed", "vs", "trend", "across quarters", "quarter over quarter"
+- "general": a purely conceptual, definitional, or educational question with NO reference to any specific transcript, file, company, or call. Examples: "what is management tone", "what is EPS", "explain gross margin", "how do earnings calls work"
 
-IMPORTANT: When in doubt between "general" and "single_quarter", choose "general". Only choose "single_quarter" if the question clearly asks to look up specific data from a transcript.
+KEY RULE: If the question contains words like "transcript", "uploaded", "the call", "the file", "the company", or a specific company name — it is NOT general. Choose "single_quarter" or "multi_quarter".
 
 Respond with ONLY a JSON object, nothing else:
 {{"mode": "single_quarter", "reasoning": "brief reason"}}
