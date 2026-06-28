@@ -56,9 +56,11 @@ def router_node(state: dict) -> dict:
 Question: "{query}"
 
 Classify this as ONE of:
-- "single_quarter": asks about one specific period, company performance, tone, risks, guidance from an earnings call
-- "multi_quarter": explicitly compares two periods, asks about changes over time, uses words like "compare", "changed", "last quarter vs", "trend"
-- "general": a general knowledge question, definition, explanation, or conceptual question that does NOT require looking up specific earnings call transcript data (e.g. "what is EPS?", "explain gross margin", "how do earnings calls work?", "tell me about P/E ratio")
+- "single_quarter": asks about SPECIFIC data from a SPECIFIC company's earnings call transcript (e.g. "What was Apple's revenue?", "What risks did the CEO mention?", "What was the guidance for next quarter?"). The question must clearly be asking to look up data from a transcript.
+- "multi_quarter": explicitly compares two or more time periods, uses words like "compare", "changed", "vs", "trend", "across quarters"
+- "general": ANY question that is conceptual, definitional, or educational — even if it uses financial terms like "tone", "margins", "EPS", "guidance". If the question does NOT reference a specific company or transcript, it is general. Examples: "what is management tone", "what is EPS", "explain gross margin", "how do earnings calls work", "what are risk factors"
+
+IMPORTANT: When in doubt between "general" and "single_quarter", choose "general". Only choose "single_quarter" if the question clearly asks to look up specific data from a transcript.
 
 Respond with ONLY a JSON object, nothing else:
 {{"mode": "single_quarter", "reasoning": "brief reason"}}
@@ -174,7 +176,7 @@ def retriever_node(state: dict) -> dict:
         return {
             **state,
             "retrieved_chunks": filtered_chunks,
-            "error": warning
+            "warning": warning
         }
 
     except Exception as e:
@@ -291,22 +293,24 @@ def _call_groq_analyzer(query: str, context: str) -> dict:
     """Analyzer using Groq."""
     time.sleep(2)
 
-    prompt = f"""You are an expert financial analyst. Analyze this earnings call content and answer the question.
+    prompt = f"""You are an expert financial analyst. Analyze the earnings call transcript excerpts below and answer the question thoroughly.
 
-Context:
+IMPORTANT: Base your analysis ONLY on the provided context. Extract specific numbers, percentages, and quotes where available.
+
+Context from earnings call transcript:
 {context}
 
 Question: {query}
 
-Respond with ONLY a JSON object, no markdown, no backticks:
+Respond with ONLY a valid JSON object, no markdown, no backticks, no extra text:
 {{
-  "tone": "management tone in one phrase",
-  "key_claims": ["claim 1", "claim 2", "claim 3"],
-  "risks": ["risk 1", "risk 2"],
+  "tone": "describe management's tone in one phrase (e.g. cautiously optimistic, defensive, confident)",
+  "key_claims": ["specific claim with numbers from the transcript", "another specific claim", "third claim"],
+  "risks": ["specific risk mentioned in the call", "another risk factor"],
   "sentiment": "positive/negative/neutral/mixed",
   "beat_miss_signal": "beat/miss/in-line/undeterminable",
   "confidence": "high/medium/low",
-  "summary": "4-5 sentence detailed analyst summary covering performance, tone, and outlook"
+  "summary": "Write a detailed 4-5 sentence analyst summary. Include specific revenue figures, growth rates, margins, and management outlook. Cover both strengths and concerns."
 }}"""
 
     try:
