@@ -27,22 +27,18 @@ def retrieve(
     """
     query_vector = embedder.encode(query).tolist()
 
-    # Build optional metadata filter
-    search_filter = None
-    if session_id:
-        search_filter = Filter(
-            must=[FieldCondition(
-                key="session_id",
-                match=MatchValue(value=session_id)
-            )]
-        )
-    elif ticker:
-        search_filter = Filter(
-            must=[FieldCondition(
-                key="ticker",
-                match=MatchValue(value=ticker.upper())
-            )]
-        )
+    # SECURITY: Always enforce session isolation.
+    # If no session_id is provided, return empty — never search across all sessions.
+    if not session_id:
+        print("[Retriever] No session_id provided — refusing to search without isolation.")
+        return []
+
+    search_filter = Filter(
+        must=[FieldCondition(
+            key="session_id",
+            match=MatchValue(value=session_id)
+        )]
+    )
 
     results = client.query_points(
         collection_name=COLLECTION_NAME,
