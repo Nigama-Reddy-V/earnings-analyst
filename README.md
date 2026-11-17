@@ -1,8 +1,8 @@
-# 📊 Earnings Call Analyst Agent
+# Earnings Call Analyst Agent
 
-An AI-powered financial analyst that answers natural language questions about SEC earnings call transcripts using **Graph RAG**, **LangGraph**, and a **domain-finetuned Mistral 7B** model.
+An AI-powered financial analyst that answers natural language questions about SEC earnings call transcripts using **agentic RAG**, **LangGraph**, and a **domain-finetuned Mistral 7B** model.
 
-## 🎯 What it does
+## What it does
 
 Ask questions like:
 - *"What was Apple's management tone on gross margins in Q3 2024?"*
@@ -11,7 +11,7 @@ Ask questions like:
 
 The agent retrieves relevant transcript sections, analyzes them with a finetuned financial model, and returns a structured analyst-style report with cited sources.
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 User Query
@@ -25,37 +25,37 @@ Analyzer Node (Finetuned Mistral 7B) — domain analysis
 Report Node (Gemini) — structured markdown output
 ```
 
-## 🔧 Tech Stack
+## Tech Stack
 
 | Component | Technology |
 |---|---|
 | Agent orchestration | LangGraph |
 | Vector database | Qdrant |
 | Embeddings | all-MiniLM-L6-v2 |
-| Base LLM | Gemini 1.5 Flash |
+| Base LLM | Groq Llama 3.1 8B Instant |
 | Finetuned model | Mistral 7B (LoRA, QLoRA via Unsloth) |
 | Training data | finance-alpaca (68k examples) |
 | Observability | LangSmith |
 | Data source | SEC EDGAR API |
-| UI | Streamlit |
+| UI | React |
 
-## 📈 Evaluation
+## Evaluation
 
 **Retrieval Quality:** 65% keyword hit rate across 10 queries
 
 **Manual Agent Evaluation (5 test cases):**
-- Gross margin query: ✅ Returned specific margin percentages and management tone
-- Risk factors query: ✅ Identified operational and macroeconomic risks  
-- Guidance query: ✅ Provided forward-looking statements
-- Cloud revenue query: ✅ Returned growth metrics
-- Beat/miss query: ✅ Compared performance against expectations
+- Gross margin query:  Returned specific margin percentages and management tone
+- Risk factors query:  Identified operational and macroeconomic risks  
+- Guidance query:  Provided forward-looking statements
+- Cloud revenue query:  Returned growth metrics
+- Beat/miss query:  Compared performance against expectations
 
 **Finetuned Model Evaluation:**
 - Quantitative reasoning: 4/5
 - Qualitative analysis: 2/5
 - Overall: 2.8/5
 
-## 🚀 Setup
+## Setup
 
 ```bash
 git clone https://github.com/Nigama-11/earnings-analyst
@@ -80,11 +80,8 @@ HF_TOKEN=...
 streamlit run app.py
 ```
 
-## 🎥 Demo
 
-[Loom demo link here]
-
-## 🤖 Finetuned Model
+## Finetuned Model
 
 Model: [Nigama-11/mistral-7b-earnings-analyst](https://huggingface.co/Nigama-11/mistral-7b-earnings-analyst)
 
